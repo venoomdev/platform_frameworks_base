@@ -40,4 +40,6 @@
          Leave 1 if you have mA, put 1000 if you have µA-->
     <integer name="config_battCurrentDivider" translatable="false">1</integer>
 
+     <!-- System icon area layout weight -->
+    <item name="system_icon_area_weight" format="float" type="integer">1</item>
 </resources>

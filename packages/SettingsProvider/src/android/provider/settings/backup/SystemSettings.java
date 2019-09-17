@@ -100,5 +100,6 @@ public class SystemSettings {
         Settings.System.NOTIFICATION_PULSE_DURATION,
         Settings.System.NOTIFICATION_HEADERS,
         Settings.System.STATUS_BAR_NOTIF_COUNT,
+        Settings.System.COLOR_BUCKET_OVERLAY,
     };
 }

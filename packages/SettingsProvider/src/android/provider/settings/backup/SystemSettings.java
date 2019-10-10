@@ -90,5 +90,8 @@ public class SystemSettings {
         Settings.System.ARTWORK_MEDIA_BACKGROUND_ALPHA,
         Settings.System.FULLSCREEN_GESTURES,
         Settings.System.DOZE_ON_CHARGE,
+        Settings.System.PULSE_AMBIENT_LIGHT,
+        Settings.System.AMBIENT_NOTIFICATION_LIGHT_ENABLED,
+        Settings.System.AMBIENT_NOTIFICATION_LIGHT,
     };
 }

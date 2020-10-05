@@ -6005,6 +6005,9 @@ public final class Settings {
         public static final String QS_SHOW_BATTERY_ESTIMATE = "qs_show_battery_estimate";
 
 
+        /** @hide */
+        public static final String BACK_GESTURE_HAPTIC = "back_gesture_haptic";
+
         /**
          * Whether to enable PULSE Edge lights
          * @hide
@@ -6408,6 +6411,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_VIEW_LOCATION);
             PRIVATE_SETTINGS.add(POCKET_JUDGE);
             PRIVATE_SETTINGS.add(STATUSBAR_ICONS_STYLE);
+            PRIVATE_SETTINGS.add(BACK_GESTURE_HAPTIC);
         }
 
         /**

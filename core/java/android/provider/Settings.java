@@ -6089,6 +6089,13 @@ public final class Settings {
         public static final String NOTIFICATION_PULSE_DURATION = "ambient_notification_light_duration";
 
         /**
+         * Controls whether to show notification headers
+         * @hide
+         */
+        @Readable
+        public static final String NOTIFICATION_HEADERS = "notification_headers";
+
+        /**
          * Whether StatusBar icons should use app icon
          * @hide
          */

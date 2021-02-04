@@ -32,11 +32,6 @@ import com.android.systemui.dagger.SysUISingleton
 import com.android.systemui.statusbar.notification.MediaNotificationProcessor
 import javax.inject.Inject
 
-private const val TAG = "MediaArtworkProcessor"
-private const val COLOR_ALPHA = (255 * 0.7f).toInt()
-//private const val BLUR_RADIUS = 25f
-private const val DOWNSAMPLE = 6
-
 @SysUISingleton
 class MediaArtworkProcessor @Inject constructor() {
 
@@ -45,7 +40,13 @@ class MediaArtworkProcessor @Inject constructor() {
     private var mDownSample: Int = DOWNSAMPLE
     //private var mColorAlpha: Int = COLOR_ALPHA
 
-    fun processArtwork(context: Context, artwork: Bitmap, blur_radius: Float): Bitmap? {
+    @JvmOverloads
+    fun processArtwork(
+        context: Context,
+        artwork: Bitmap,
+        radius: Float = BLUR_RADIUS,
+        withSwatchOverlay: Boolean = true,
+    ): Bitmap? {
         if (mArtworkCache != null) {
             return mArtworkCache
         }
@@ -76,16 +77,18 @@ class MediaArtworkProcessor @Inject constructor() {
                 input = Allocation.createFromBitmap(renderScript, inBitmap,
                         Allocation.MipmapControl.MIPMAP_NONE, Allocation.USAGE_GRAPHICS_TEXTURE)
                 output = Allocation.createFromBitmap(renderScript, outBitmap)
-                    blur.setRadius(blur_radius)
+                    blur.setRadius(radius)
                     blur.setInput(input)
                     blur.forEach(output)
                 output.copyTo(outBitmap)
             } else {
                 outBitmap = inBitmap.copy(Bitmap.Config.ARGB_8888, true/*mutable*/)
             }
-            val swatch = MediaNotificationProcessor.findBackgroundSwatch(artwork)
+            if (withSwatchOverlay) {
+                val swatch = MediaNotificationProcessor.findBackgroundSwatch(artwork)
             val canvas = Canvas(outBitmap)
-            canvas.drawColor(ColorUtils.setAlphaComponent(swatch.rgb, COLOR_ALPHA/*mColorAlpha*/))
+                canvas.drawColor(ColorUtils.setAlphaComponent(swatch.rgb, COLOR_ALPHA))
+            }
             return outBitmap
         } catch (ex: IllegalArgumentException) {
             Log.e(TAG, "error while processing artwork", ex)
@@ -103,5 +106,12 @@ class MediaArtworkProcessor @Inject constructor() {
     fun clearCache() {
         mArtworkCache?.recycle()
         mArtworkCache = null
+    }
+
+    companion object {
+        private const val TAG = "MediaArtworkProcessor"
+        private const val COLOR_ALPHA = 178 // 255 * 0.7
+        private const val BLUR_RADIUS = 25f
+        private const val DOWNSAMPLE = 6
     }
 }

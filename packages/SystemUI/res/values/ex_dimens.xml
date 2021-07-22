@@ -43,4 +43,8 @@
 
     <!-- Margin on the right side of the center clock -->
     <dimen name="status_bar_center_clock_padding_end">0dp</dimen>
+    
+    <!-- Height of the battery icon in the status bar. -->
+    <dimen name="status_bar_battery_icon_height_landscape">12.5dp</dimen>
+    <dimen name="status_bar_battery_icon_width_landscape">24dp</dimen>
 </resources>

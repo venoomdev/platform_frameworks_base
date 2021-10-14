@@ -223,8 +223,6 @@ public class KeyguardStatusBarView extends RelativeLayout implements
     // Set hidden status bar items
     private void loadBlockList() {
         Resources r = getResources();
-        mBlockedIcons.add(r.getString(com.android.internal.R.string.status_bar_volume));
-        mBlockedIcons.add(r.getString(com.android.internal.R.string.status_bar_alarm_clock));
     }
 
     private void updateVisibilities() {

@@ -35,7 +35,7 @@
         android:minHeight="48dp"
         android:layout_weight="1"
         android:gravity="center_vertical|start" >
-
+        
         <com.android.systemui.statusbar.policy.DateView
             android:id="@+id/date"
             android:layout_width="wrap_content"
@@ -43,7 +43,7 @@
             android:layout_gravity="start|center_vertical"
             android:gravity="center_vertical"
             android:singleLine="true"
-            android:textAppearance="@style/TextAppearance.QS.Status"
+            android:textAppearance="@style/TextAppearance.QS.OneUI2"
             systemui:datePattern="@string/abbrev_wday_month_day_no_year_alarm" />
     </FrameLayout>
 

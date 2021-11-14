@@ -29,7 +29,7 @@ public final class AttestationHooks {
     private static final String TAG = "GmsCompat/Attestation";
 
     private static final String PRODUCT_STOCK_FINGERPRINT =
-            SystemProperties.get("ro.build.stock_fingerprint");
+            SystemProperties.get("ro.build.fingerprint");
 
     private static volatile boolean sIsGms = false;
 

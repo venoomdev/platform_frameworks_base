@@ -32,6 +32,7 @@ public class PixelPropsUtils {
     private static final boolean DEBUG = false;
     private static final Map<String, Object> propsToChangePUBG;
     private static final Map<String, Object> propsToChangeCOD;
+    private static final Map<String, Object> propsToChangeWR;
 
     private static final Map<String, Object> propsToChangePixel6;
 
@@ -42,8 +43,13 @@ public class PixelPropsUtils {
             "com.google.android.apps.recorder"
     };
 
+   private static final String[] packagesToChangeWR = {
+        "com.riotgames.league.wildrift"
+    };
+    
    private static final String[] packagesToChangeCOD = {
-        "com.activision.callofduty.shooter"
+        "com.activision.callofduty.shooter",
+        "com.garena.game.codm"
     };
 
     private static final String[] packagesToChangePUBG = {
@@ -89,6 +95,8 @@ public class PixelPropsUtils {
         propsToChangePUBG.put("MODEL", "GM1917");
         propsToChangeCOD = new HashMap<>();
         propsToChangeCOD.put("MODEL", "SO-52A");
+        propsToChangeWR = new HashMap<>();
+        propsToChangeWR.put("MODEL", "SM-G9880");
     }
 
     public static void setProps(String packageName) {
@@ -139,7 +147,17 @@ public class PixelPropsUtils {
                 setPropValue(key, value);
             }
         }
-
+	 if (Arrays.asList(packagesToChangeWR).contains(packageName)){
+            if (DEBUG){
+                Log.d(TAG, "Defining props for: " + packageName);
+            }
+            for (Map.Entry<String, Object> prop : propsToChangeWR.entrySet()) {
+                String key = prop.getKey();
+                Object value = prop.getValue();
+                setPropValue(key, value);
+            }
+        }
+        
         // Set proper indexing fingerprint
         if (packageName.equals("com.google.android.settings.intelligence")) {
             setPropValue("FINGERPRINT", Build.VERSION.INCREMENTAL);

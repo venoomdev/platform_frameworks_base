@@ -120,10 +120,9 @@ public class PixelPropsUtils {
         }
         if (packageName.equals(PACKAGE_GMS)) {
             sIsGms = true;
-            setPropValue("TYPE", "userdebug");
         }
         if (packageName.startsWith("com.google.") || Arrays.asList(extraPackagesToChange).contains(packageName)) {
-            Map<String, Object> propsToChange = propsToChangePixel5;
+            Map<String, Object> propsToChange = propsToChangePixel6;
 
             if (Arrays.asList(packagesToChangePixel5).contains(packageName)) {
                 propsToChange = propsToChangePixel5;

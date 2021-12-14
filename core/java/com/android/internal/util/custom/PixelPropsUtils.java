@@ -108,6 +108,9 @@ public class PixelPropsUtils {
         propsToChangeCOD = new HashMap<>();
         propsToChangeCOD.put("MODEL", "SO-52A");
         propsToChangeWR = new HashMap<>();
+        propsToChangeWR.put("BRAND", "samsung");
+        propsToChangeWR.put("MANUFACTURER", "Samsung");
+        propsToChangeWR.put("DEVICE", "SM-G9880");
         propsToChangeWR.put("MODEL", "SM-G9880");
     }
 

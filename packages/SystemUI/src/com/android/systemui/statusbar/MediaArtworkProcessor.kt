@@ -56,7 +56,7 @@ class MediaArtworkProcessor @Inject constructor() {
         var output: Allocation? = null
         var inBitmap: Bitmap? = null
         try {
-            if (blur_radius < 5f) mDownSample = 2 else mDownSample = DOWNSAMPLE
+            if (radius < 5f) mDownSample = 2 else mDownSample = DOWNSAMPLE
             @Suppress("DEPRECATION")
             context.display?.getSize(mTmpSize)
             val rect = Rect(0, 0, artwork.width, artwork.height)
@@ -71,7 +71,7 @@ class MediaArtworkProcessor @Inject constructor() {
                 oldIn.recycle()
             }
             var outBitmap: Bitmap?
-            if (blur_radius >= 1f) {
+            if (radius >= 1f) {
                 outBitmap = Bitmap.createBitmap(inBitmap.width, inBitmap.height,
                         Bitmap.Config.ARGB_8888)
                 input = Allocation.createFromBitmap(renderScript, inBitmap,
@@ -94,7 +94,7 @@ class MediaArtworkProcessor @Inject constructor() {
             Log.e(TAG, "error while processing artwork", ex)
             return null
         } finally {
-            if (blur_radius >= 1f) {
+            if (radius >= 1f) {
                 input?.destroy()
                 output?.destroy()
             }

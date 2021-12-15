@@ -33,6 +33,7 @@ public class PixelPropsUtils {
     private static final Map<String, Object> propsToChangePUBG;
     private static final Map<String, Object> propsToChangeCOD;
     private static final Map<String, Object> propsToChangeWR;
+    private static final Map<String, Object> propsToChangeML;
     private static final Map<String, Object> propsToChangePixel2;
 
     private static final Map<String, Object> propsToChangePixel6;
@@ -46,6 +47,10 @@ public class PixelPropsUtils {
 
    private static final String[] packagesToChangeWR = {
         "com.riotgames.league.wildrift"
+    };
+    
+   private static final String[] packagesToChangeML = {
+        "com.mobile.legends"
     };
     
    private static final String[] packagesToChangeCOD = {
@@ -125,6 +130,11 @@ public class PixelPropsUtils {
         propsToChangeWR.put("MANUFACTURER", "Samsung");
         propsToChangeWR.put("DEVICE", "SM-G9880");
         propsToChangeWR.put("MODEL", "SM-G9880");
+        propsToChangeML = new HashMap<>();
+        propsToChangeML.put("BRAND", "Xiaomi");
+        propsToChangeML.put("MANUFACTURER", "Xiaomi");
+        propsToChangeML.put("DEVICE", "Mi 10 Pro");
+        propsToChangeML.put("MODEL", "Mi 10 Pro");
     }
 
     public static void setProps(String packageName) {
@@ -194,6 +204,17 @@ public class PixelPropsUtils {
                 Log.d(TAG, "Defining props for: " + packageName);
             }
             for (Map.Entry<String, Object> prop : propsToChangePixel2.entrySet()) {
+                String key = prop.getKey();
+                Object value = prop.getValue();
+                setPropValue(key, value);
+            }
+        }
+        
+	 if (Arrays.asList(packagesToChangeML).contains(packageName)){
+            if (DEBUG){
+                Log.d(TAG, "Defining props for: " + packageName);
+            }
+            for (Map.Entry<String, Object> prop : propsToChangeML.entrySet()) {
                 String key = prop.getKey();
                 Object value = prop.getValue();
                 setPropValue(key, value);

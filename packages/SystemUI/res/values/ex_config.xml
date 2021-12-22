@@ -52,4 +52,5 @@
    <!-- If not zero, limits the internal screen recorder's framerate to the set value. -->
     <integer name="config_screenRecorderMaxFramerate">0</integer>
 
+    <bool name="qs_tile_vertical_layout">true</bool>
 </resources>

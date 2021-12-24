@@ -20,13 +20,18 @@ package com.android.internal.util.custom;
 import android.os.Build;
 import android.util.Log;
 
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.lang.reflect.Field;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public final class PixelPropsUtils {
 
     private static final String TAG = "PixelPropsUtils";
+    public static final String PACKAGE_GMS = "com.google.android.gms";
     private static final boolean DEBUG = false;
 
     private static final Map<String, Object> commonProps = Map.of(
@@ -154,7 +159,13 @@ public final class PixelPropsUtils {
         "com.samsung.android.waterplugin"
     );
 
+
+    private static volatile boolean sIsGms = false;
+    
     public static void setProps(String packageName) {
+    	if (packageName.equals(PACKAGE_GMS)) {
+            sIsGms = true;
+        }
         if (packageName == null) {
             return;
         }
@@ -203,6 +214,18 @@ public final class PixelPropsUtils {
             field.setAccessible(false);
         } catch (NoSuchFieldException | IllegalAccessException e) {
             Log.e(TAG, "Failed to set prop " + key, e);
+        }
+    }
+    
+    private static boolean isCallerSafetyNet() {
+        return Arrays.stream(Thread.currentThread().getStackTrace())
+                .anyMatch(elem -> elem.getClassName().contains("DroidGuard"));
+    }
+
+    public static void onEngineGetCertificateChain() {
+        // Check stack for SafetyNet
+        if (sIsGms && isCallerSafetyNet()) {
+            throw new UnsupportedOperationException();
         }
     }
 }

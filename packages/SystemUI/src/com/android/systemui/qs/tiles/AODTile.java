@@ -160,7 +160,7 @@ public class AODTile extends QSTileImpl<State> implements
 
     @Override
     public int getMetricsCategory() {
-        return MetricsEvent.EVO_QS_TILES;
+        return MetricsEvent.EXTENSIONS;
     }
 
     @Override

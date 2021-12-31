@@ -6103,6 +6103,13 @@ public final class Settings {
          */
         public static final String STATUSBAR_ICONS_STYLE = "statusbar_icons_style";
 
+        /**
+         * Arcane Idle Manager
+         * @hide
+         */
+        @Readable
+        public static final String ARCANE_IDLE_MANAGER = "arcane_idle_manager";
+
         /**          
           * Setting to enable/disable gaming mode
           * @hide

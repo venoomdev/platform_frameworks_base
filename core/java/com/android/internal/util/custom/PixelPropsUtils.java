@@ -64,7 +64,10 @@ public final class PixelPropsUtils {
     );
     
     private static final Map<String, String> codmProps = Map.of(
-        "MODEL", "SO-52A"
+        "BRAND", "samsung",
+        "MANUFACTURER", "Samsung",
+        "DEVICE", "SM-G9750",
+        "MODEL", "SM-G9750",
     );
 
     private static final Map<String, String> wrProps = Map.of(
@@ -72,6 +75,10 @@ public final class PixelPropsUtils {
         "MANUFACTURER", "Samsung",
         "DEVICE", "SM-G9880",
         "MODEL", "SM-G9880"
+    );
+    
+    private static final Map<String, String> aovProps = Map.of(
+        "MODEL", "R11 Plus"
     );
    
     private static final Map<String, String> mlProps = Map.of(
@@ -129,6 +136,11 @@ public final class PixelPropsUtils {
     
     private static final List<String> packagesToChangeML = List.of(
         "com.mobile.legends"
+    );
+    
+    private static final List<String> packagesToChangeAOV = List.of(
+        "com.garena.game.kgid",
+        "com.ngame.allstar.eu"
     );
     
    private static final List<String> packagesToChangeCOD = List.of(
@@ -196,6 +208,9 @@ public final class PixelPropsUtils {
         } else if (packagesToChangePUBG.contains(packageName)) {
            excommonProps.forEach(PixelPropsUtils::setPropValue);
            pubgProps.forEach(PixelPropsUtils::setPropValue);
+        } else if (packagesToChangeAOV.contains(packageName)) {
+           excommonProps.forEach(PixelPropsUtils::setPropValue);
+           aovProps.forEach(PixelPropsUtils::setPropValue);
         }
         // Set proper indexing fingerprint
         if (packageName.equals("com.google.android.settings.intelligence")) {

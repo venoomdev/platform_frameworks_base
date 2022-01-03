@@ -67,9 +67,19 @@ public final class PixelPropsUtils {
         "BRAND", "samsung",
         "MANUFACTURER", "Samsung",
         "DEVICE", "SM-G9750",
-        "MODEL", "SM-G9750",
+        "MODEL", "SM-G9750"
     );
 
+    private static final Map<String, String> ffProps = Map.of(
+        "MANUFACTURER", "asus",
+        "MODEL", "ASUS_Z01QD"
+    );
+    
+    private static final Map<String, String> op8Props = Map.of(
+        "MANUFACTURER", "OnePlus",
+        "MODEL", "IN2020"
+    );
+    
     private static final Map<String, String> wrProps = Map.of(
     	"BRAND", "samsung",
         "MANUFACTURER", "Samsung",
@@ -130,6 +140,17 @@ public final class PixelPropsUtils {
         "com.google.pixel.livewallpaper"
     );
 
+    private static final List<String> packagesToChangeFF = List.of(
+           "com.dts.freefireth",
+           "com.dts.freefiremax"
+    );
+    
+    private static final List<String> packagesToChangeOP8 = List.of(
+            "com.netease.lztgglobal",
+            "com.epicgames.fortnite",
+            "com.epicgames.portal"
+    );
+    
     private static final List<String> packagesToChangeWR = List.of(
         "com.riotgames.league.wildrift"
     );
@@ -211,6 +232,12 @@ public final class PixelPropsUtils {
         } else if (packagesToChangeAOV.contains(packageName)) {
            excommonProps.forEach(PixelPropsUtils::setPropValue);
            aovProps.forEach(PixelPropsUtils::setPropValue);
+        } else if (packagesToChangeFF.contains(packageName)) {
+           excommonProps.forEach(PixelPropsUtils::setPropValue);
+           ffProps.forEach(PixelPropsUtils::setPropValue);
+        } else if (packagesToChangeOP8.contains(packageName)) {
+           excommonProps.forEach(PixelPropsUtils::setPropValue);
+           op8Props.forEach(PixelPropsUtils::setPropValue);
         }
         // Set proper indexing fingerprint
         if (packageName.equals("com.google.android.settings.intelligence")) {

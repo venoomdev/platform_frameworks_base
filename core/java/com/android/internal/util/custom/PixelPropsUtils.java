@@ -90,13 +90,6 @@ public final class PixelPropsUtils {
     private static final Map<String, String> aovProps = Map.of(
         "MODEL", "R11 Plus"
     );
-   
-    private static final Map<String, String> mlProps = Map.of(
-    	"BRAND", "Xiaomi",
-        "MANUFACTURER", "Xiaomi",
-        "DEVICE", "Mi 10 Pro",
-        "MODEL", "Mi 10 Pro"
-    );
      
     private static final Map<String, String> marlinProps = Map.of(
         "DEVICE", "marlin",
@@ -153,10 +146,6 @@ public final class PixelPropsUtils {
     
     private static final List<String> packagesToChangeWR = List.of(
         "com.riotgames.league.wildrift"
-    );
-    
-    private static final List<String> packagesToChangeML = List.of(
-        "com.mobile.legends"
     );
     
     private static final List<String> packagesToChangeAOV = List.of(
@@ -220,9 +209,6 @@ public final class PixelPropsUtils {
         } else if (packagesToChangeWR.contains(packageName)) {
            excommonProps.forEach(PixelPropsUtils::setPropValue);
            wrProps.forEach(PixelPropsUtils::setPropValue);
-        } else if (packagesToChangeML.contains(packageName)) {
-           excommonProps.forEach(PixelPropsUtils::setPropValue);
-           mlProps.forEach(PixelPropsUtils::setPropValue);
         } else if (packagesToChangeCOD.contains(packageName)) {
            excommonProps.forEach(PixelPropsUtils::setPropValue);
            codmProps.forEach(PixelPropsUtils::setPropValue);

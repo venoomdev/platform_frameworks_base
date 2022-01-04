@@ -7633,6 +7633,19 @@ public class NotificationManagerService extends SystemService {
     }
 
     @GuardedBy("mNotificationLock")
+    boolean isInsistentUpdate(final NotificationRecord record) {
+        return (Objects.equals(record.getKey(), mSoundNotificationKey)
+                || Objects.equals(record.getKey(), mVibrateNotificationKey))
+                && isCurrentlyInsistent();
+    }
+
+    @GuardedBy("mNotificationLock")
+    boolean isCurrentlyInsistent() {
+        return isLoopingRingtoneNotification(mNotificationsByKey.get(mSoundNotificationKey))
+                || isLoopingRingtoneNotification(mNotificationsByKey.get(mVibrateNotificationKey));
+    }
+
+    @GuardedBy("mNotificationLock")
     boolean shouldMuteNotificationLocked(final NotificationRecord record) {
         // Suppressed because it's a silent update
         final Notification notification = record.getNotification();

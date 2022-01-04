@@ -137,4 +137,8 @@
     <style name="TextAppearance.Keyguard.BottomArea.Button">
         <item name="android:shadowRadius">0</item>
     </style>
+
+    <style name="TextAppearance.Keyguard.BottomArea.Button">
+        <item name="android:shadowRadius">0</item>
+    </style>
 </resources>

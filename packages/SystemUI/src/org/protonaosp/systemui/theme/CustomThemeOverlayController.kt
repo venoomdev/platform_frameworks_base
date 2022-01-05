@@ -16,6 +16,7 @@
 
 package org.protonaosp.systemui.theme
 
+import android.util.Log;
 import android.annotation.ColorInt
 import android.app.WallpaperColors
 import android.app.WallpaperManager

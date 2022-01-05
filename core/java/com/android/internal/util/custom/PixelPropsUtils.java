@@ -52,11 +52,11 @@ public final class PixelPropsUtils {
         "TYPE", "user"
     );
     
-    private static final Map<String, String> ravenProps = Map.of(
-        "DEVICE", "raven",
-        "PRODUCT", "raven",
-        "MODEL", "Pixel 6 Pro",
-        "FINGERPRINT", "google/raven/raven:12/SQ1D.211205.016.A1/7957957:user/release-keys"
+    private static final Map<String, String> redfinProps = Map.of(
+        "DEVICE", "redfin",
+        "PRODUCT", "redfin",
+        "MODEL", "Pixel 5",
+        "FINGERPRINT", "google/redfin/redfin:12/SQ1A.220105.002/7961164:user/release-keys"
     );
 
     private static final Map<String, String> pubgProps = Map.of(
@@ -196,7 +196,7 @@ public final class PixelPropsUtils {
         }
         if (packagesToChange.contains(packageName)) {
             commonProps.forEach(PixelPropsUtils::setPropValue);
-            ravenProps.forEach((key, value) -> {
+            redfinProps.forEach((key, value) -> {
                 if (packageName.equals("com.google.android.gms") && key.equals("MODEL")) {
                     return;
                 } else {

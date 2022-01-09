@@ -63,12 +63,12 @@ public final class PixelPropsUtils {
         "MODEL", "GM1917"
     );
     
-    private static final Map<String, String> codmProps = Map.of(
-        "BRAND", "samsung",
-        "MANUFACTURER", "Samsung",
-        "DEVICE", "SM-G9750",
-        "MODEL", "SM-G9750"
-    );
+    //private static final Map<String, String> codmProps = Map.of(
+        //"BRAND", "samsung",
+        //"MANUFACTURER", "Samsung",
+        //"DEVICE", "SM-G9750",
+        //"MODEL", "SM-G9750"
+    //);
 
     private static final Map<String, String> ffProps = Map.of(
         "MANUFACTURER", "asus",
@@ -153,10 +153,10 @@ public final class PixelPropsUtils {
         "com.ngame.allstar.eu"
     );
     
-   private static final List<String> packagesToChangeCOD = List.of(
-        "com.activision.callofduty.shooter",
-        "com.garena.game.codm"
-    );
+//   private static final List<String> packagesToChangeCOD = List.of(
+//        "com.activision.callofduty.shooter",
+//        "com.garena.game.codm"
+//    );
     
    private static final List<String> packagesToChangePUBG = List.of(
         "com.tencent.ig",
@@ -209,9 +209,9 @@ public final class PixelPropsUtils {
         } else if (packagesToChangeWR.contains(packageName)) {
            excommonProps.forEach(PixelPropsUtils::setPropValue);
            wrProps.forEach(PixelPropsUtils::setPropValue);
-        } else if (packagesToChangeCOD.contains(packageName)) {
-           excommonProps.forEach(PixelPropsUtils::setPropValue);
-           codmProps.forEach(PixelPropsUtils::setPropValue);
+//        } else if (packagesToChangeCOD.contains(packageName)) {
+//           excommonProps.forEach(PixelPropsUtils::setPropValue);
+//           codmProps.forEach(PixelPropsUtils::setPropValue);
         } else if (packagesToChangePUBG.contains(packageName)) {
            excommonProps.forEach(PixelPropsUtils::setPropValue);
            pubgProps.forEach(PixelPropsUtils::setPropValue);

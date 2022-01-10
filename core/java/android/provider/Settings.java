@@ -6104,6 +6104,11 @@ public final class Settings {
         public static final String STATUSBAR_ICONS_STYLE = "statusbar_icons_style";
 
         /**
+         * @hide
+         */
+        public static final String LOCKSCREEN_SMALL_CLOCK = "lockscreen_small_clock";
+
+        /**
          * Arcane Idle Manager
          * @hide
          */
@@ -6441,6 +6446,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(POCKET_JUDGE);
             PRIVATE_SETTINGS.add(STATUSBAR_ICONS_STYLE);
             PRIVATE_SETTINGS.add(BACK_GESTURE_HAPTIC);
+            PRIVATE_SETTINGS.add(LOCKSCREEN_SMALL_CLOCK);
         }
 
         /**

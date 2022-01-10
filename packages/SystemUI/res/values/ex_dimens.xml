@@ -45,8 +45,8 @@
     <dimen name="status_bar_center_clock_padding_end">0dp</dimen>
     
     <!-- Height of the battery icon in the status bar. -->
-    <dimen name="status_bar_battery_icon_height_landscape">12.5dp</dimen>
-    <dimen name="status_bar_battery_icon_width_landscape">24dp</dimen>
+    <dimen name="status_bar_battery_icon_height_landscape">10.5dp</dimen>
+    <dimen name="status_bar_battery_icon_width_landscape">20dp</dimen>
 
     <!-- Additional gesture navbar lengths -->
     <dimen name="navigation_home_handle_width_medium">110dp</dimen>

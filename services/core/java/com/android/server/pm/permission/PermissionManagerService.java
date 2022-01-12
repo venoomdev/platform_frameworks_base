@@ -2692,8 +2692,6 @@ public class PermissionManagerService extends IPermissionManager.Stub {
         synchronized (mLock) {
             for (final int userId : userIds) {
                 final UserPermissionState userState = mState.getOrCreateUserState(userId);
-                // "replace" parameter is set to true even when the app is first installed
-                final boolean uidStateWasPresent = userState.getUidState(ps.getAppId()) != null;
                 final UidPermissionState uidState = userState.getOrCreateUidState(ps.getAppId());
 
                 if (uidState.isMissing()) {
@@ -2980,9 +2978,7 @@ public class PermissionManagerService extends IPermissionManager.Stub {
                             }
 
                             if (isSpecialRuntimePermission(permName) &&
-                                    origPermState == null &&
-                                    // don't grant special runtime permission if the app requests it in an update
-                                    !uidStateWasPresent) {
+                                    origPermState == null) {
                                 if (uidState.grantPermission(bp)) {
                                     wasChanged = true;
                                 }

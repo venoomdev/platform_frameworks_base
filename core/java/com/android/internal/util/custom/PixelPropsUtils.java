@@ -145,7 +145,9 @@ public final class PixelPropsUtils {
     );
     
     private static final List<String> packagesToChangeWR = List.of(
-        "com.riotgames.league.wildrift"
+        "com.riotgames.league.wildrift",
+        "com.riotgames.league.wildrifttw",
+        "com.riotgames.league.wildriftvn"
     );
     
     private static final List<String> packagesToChangeAOV = List.of(
@@ -165,6 +167,7 @@ public final class PixelPropsUtils {
         "com.rekoo.pubgm",
         "com.pubg.imobile",
         "com.pubg.newstate",
+        "com.tencent.tmgp.pubgmhd",
         "com.gameloft.android.ANMP.GloftA9HM" // Asphalt 9
     );
     

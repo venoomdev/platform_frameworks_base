@@ -352,6 +352,18 @@ public class AEXUtils {
         return getQSColumnsCount(context, resourceCount);
     }
 
+    public static boolean getQSTileLabelHide(Context context) {
+        return Settings.System.getIntForUser(context.getContentResolver(),
+                Settings.System.OMNI_QS_TILE_LABEL_HIDE,
+                0, UserHandle.USER_CURRENT) != 0;
+    }
+
+    public static boolean getQSTileVerticalLayout(Context context, int defaultValue) {
+        return Settings.System.getIntForUser(context.getContentResolver(),
+                Settings.System.OMNI_QS_TILE_VERTICAL_LAYOUT,
+                defaultValue, UserHandle.USER_CURRENT) != 0;
+    }
+
     public static void restartSystemUi(Context context) {
         new RestartSystemUiTask(context).execute();
     }
